@@ -12,8 +12,6 @@ my_env/
 # Django-specific
 /db.sqlite3
 /db.sqlite3-journal
-/media/
-/static/
 /local_settings.py
 
 # Logs
