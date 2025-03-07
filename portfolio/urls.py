@@ -6,10 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = DefaultRouter()
-router.register(r'skills', SkillViewSet)
 router.register(r'experience', ExperienceViewSet)
-router.register(r'projects', ProjectViewSet)
-router.register(r'certifications', CertificationViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

@@ -12,10 +12,7 @@ initNavbarShrink();
 initScrollSpy();
 initResponsiveNavbar();
 initLightbox();
-loadSkills();
 loadExperience();
-loadProjects();
-loadCertifications();
 initContactForm();
 initScrollToTopButton();
 });
@@ -89,30 +86,6 @@ new SimpleLightbox({
 });
 }
 
-// Function to fetch and display Skills
-function loadSkills() {
-    fetch("/api/skills/")
-        .then(response => response.json())
-        .then(data => {
-            let container = document.getElementById("skills-list");
-            container.innerHTML = ""; // Clear previous content
-
-            data.forEach(skill => {
-                let skillCard = document.createElement("div");
-                skillCard.classList.add("skill-card");
-
-                skillCard.innerHTML = `
-                    <img src="${skill.icon}" alt="${skill.name}">
-                    <p>${skill.name}</p>
-                `;
-
-                container.appendChild(skillCard);
-            });
-        })
-        .catch(error => console.error("Error fetching skills:", error));
-}
-
-
 // Function to fetch and display Experience
 // Function to fetch and display experience data
 function loadExperience() {
@@ -154,80 +127,6 @@ function createExperienceCard(experience) {
     `;
 
     return card;
-}
-
-function loadProjects() {
-fetch("/api/projects/")
-    .then(response => response.json())
-    .then(data => {
-        let container = document.getElementById("projects-list");
-        container.innerHTML = ""; // Clear previous content
-
-        if (data.length === 0) {
-            container.innerHTML = "<p class='text-center text-muted'>No projects available.</p>";
-            return;
-        }
-
-        data.forEach(project => {
-            let projectCard = document.createElement("div");
-            projectCard.classList.add("project-card");
-
-            // Check if project link exists
-            let projectImage = project.project_link 
-                ? `<a href="${project.project_link}" target="_blank">
-                    <img src="${project.project_photo}" alt="${project.project_name}" class="project-image">
-                </a>` 
-                : `<img src="${project.project_photo}" alt="${project.project_name}" class="project-image">`;
-
-            projectCard.innerHTML = `
-                ${projectImage}
-                <div class="project-details">
-                    <p class="project-duration">${formatDate(project.start_date)} - ${formatDate(project.end_date)}</p>
-                    <h4 class="project-title">${project.project_name}</h4>
-                    <p class="project-tech">${project.technologies}</p>
-                    <div class="project-links">
-                        ${project.project_link ? `<a href="${project.project_link}" target="_blank">Live Demo</a>` : ""}
-                        ${project.github_link ? `<a href="${project.github_link}" target="_blank">GitHub</a>` : ""}
-                    </div>
-                </div>
-            `;
-
-            container.appendChild(projectCard);
-        });
-    })
-    .catch(error => console.error("Error fetching projects:", error));
-}
-
-function loadCertifications() {
-fetch("/api/certifications/")
-    .then(response => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.json();
-    })
-    .then(data => {
-        let container = document.getElementById("certifications-list");
-        container.innerHTML = ""; // Clear previous content
-
-        if (data.length === 0) {
-            container.innerHTML = "<p class='text-center text-muted'>No certifications available.</p>";
-            return;
-        }
-
-        data.forEach(cert => {
-            let certCard = document.createElement("div");
-            certCard.classList.add("certification-card");
-
-            certCard.innerHTML = `
-                <p class="certification-month">${cert.month_year}</p>
-                <h5 class="certification-title">${cert.certificate_name}</h5>
-                <p class="certification-issued">${cert.issued_by}</p>
-                ${cert.certificate_link ? `<a href="${cert.certificate_link}" class="certification-link" target="_blank">View Certificate</a>` : ""}
-            `;
-
-            container.appendChild(certCard);
-        });
-    })
-    .catch(error => console.error("Error fetching certifications:", error));
 }
 
 // Function to format date (YYYY-MM-DD to Month YYYY)
