@@ -1,0 +1,338 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <title>Portfolio</title>
+      <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+      <!-- Bootstrap Icons-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+      <!-- Google fonts-->
+      <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand" href="#page-top">SHUBHAM</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Masthead -->
+      <header class="masthead">
+         <div class="container h-100 d-flex flex-column align-items-center justify-content-center text-center">
+            <h1 class="text-white fw-bold">HELLO<span>,</span> I AM <br>SHUBHAM <br>SHIRODKAR<span>.</span></h1>
+            <hr class="divider" />
+            <p class="text-white mb-4 fw-bold">BACKEND DEVELOPER</p>
+            <a class="btn btn-primary btn-lg text-dark" href="{% static 'download/Shubham_Shirodkar_CV.pdf' %}" download>Download Resume</a>
+         </div>
+      </header>
+      <!-- About Me Section -->
+      <section id="about" class="py-5 bg-light">
+         <div class="container">
+            <!-- Centered Heading with Line Below -->
+            <div class="text-center mb-4">
+               <h2 class="text-dark fw-bold">ABOUT ME</h2>
+               <hr class="heading-divider mt-5">
+            </div>
+            <div class="row align-items-center">
+               <!-- Objective & Contact Info -->
+               <div class="col-lg-6 pb-5">
+                  <p class="text-dark">
+                     <strong>Backend Developer</strong> specializing in Python and Django REST Framework, with experience in building and deploying API-driven applications. Passionate about designing structured backend systems, optimizing performance, and developing scalable solutions for real-world use cases.
+                  </p>
+                  <div class="d-flex justify-content-between mt-5">
+                     <p><i class="bi bi-telephone-fill text-dark"></i> <strong>Phone:</strong>  9833682214</p>
+                     <p><i class="bi bi-envelope-fill text-dark"></i> <strong>Email:</strong> shubhamshirodkar90@gmail.com</p>
+                  </div>
+               </div>
+               <!-- Profile Picture & Social Links -->
+               <div class="col-lg-6 text-center">
+                  <div class="profile-frame mt-5 mx-auto">
+                     <img src="{% static 'images/Profile.JPG' %}" alt="Shubham Shirodkar" class="img-fluid">
+                  </div>
+                  <!-- Social Links Below Profile -->
+                  <div class="social-links mt-4 d-flex justify-content-center">
+                     <a href="https://www.linkedin.com/in/shubham-shirodkar-45b3b1282/" target="_blank" class="btn btn-outline-dark text-primary me-2">
+                     <i class="bi bi-linkedin"></i>
+                     </a>
+                     <a href="https://github.com/Shirodkar-Shubham-GitHub" target="_blank" class="btn btn-outline-dark me-2">
+                     <i class="bi bi-github"></i>
+                     </a>
+                     <a href="https://www.hackerrank.com/profile/shubhamshiro373" class="btn btn-outline-dark text-success me-2" style="width: 40px;">
+                     <span class="fw-bold" style="font-size: 1.0rem;">H</span>
+                     </a>
+                     <a href="https://leetcode.com/u/shubhamshirodkar90/" target="_blank" class="btn btn-outline-dark me-2">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" 
+                        alt="LeetCode" width="15" height="20">
+                     </a>                            
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Education Section -->
+      <section id="education" class="py-5 bg-white">
+         <div class="container">
+            <!-- Centered Heading with Line Below -->
+            <div class="text-center mb-4">
+               <h2 class="text-dark fw-bold">EDUCATION</h2>
+               <hr class="heading-divider mt-5">
+            </div>
+            <!-- Education Entries -->
+            <div class="row justify-content-center">
+               <div class="col-lg-8">
+                  <div class="education-entry">
+                     <h5 class="fw-bold">2021 - 2024</h5>
+                     <p><strong>Master of Computer Applications</strong></p>
+                     <p>Late Bhausaheb Hiray S.S. Trusts Institute of Computer Application, Mumbai</p>
+                  </div>
+                  <div class="education-entry">
+                     <h5 class="fw-bold">2018 - 2021</h5>
+                     <p><strong>Bachelor of Science in Information Technology</strong></p>
+                     <p>Sheth L.U.J. & M.V College of Arts, Science and Commerce, Mumbai</p>
+                  </div>
+                  <div class="education-entry">
+                     <h5 class="fw-bold">2017 - 2018</h5>
+                     <p><strong>Higher Secondary School Certificate</strong></p>
+                     <p>Bhartiya Vidya Bhavans College, Mumbai</p>
+                  </div>
+                  <div class="education-entry">
+                     <h5 class="fw-bold">2015 - 2016</h5>
+                     <p><strong>Secondary School Certificate</strong></p>
+                     <p>Guru Nanak English High School, Mumbai</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Skills Section -->
+      <section id="skills" class="py-5 bg-light">
+         <div class="container">
+              <!-- Centered Heading with Line Below -->
+              <div class="text-center mb-4">
+                  <h2 class="text-dark fw-bold">SKILLS</h2>
+                  <hr class="heading-divider mt-5">
+              </div>
+              <div class="skills-marquee">
+                  <div class="skills-row skills-row-left">
+                      <div class="skills-track">
+                          <div class="skill-card"><img src="{% static 'images/python.jpg' %}" alt="Python"></div>
+                          <div class="skill-card"><img src="{% static 'images/django.jpg' %}" alt="Django"></div>
+                          <div class="skill-card"><img src="{% static 'images/Django REST.png' %}" alt="Django REST"></div>
+                          <div class="skill-card"><img src="{% static 'images/HTML5.png' %}" alt="HTML5"></div>
+                          <div class="skill-card"><img src="{% static 'images/CSS3.png' %}" alt="CSS3"></div>
+                          <div class="skill-card"><img src="{% static 'images/JavaScript.png' %}" alt="JavaScript"></div>
+                          <div class="skill-card"><img src="{% static 'images/Bootstrap5.jpg' %}" alt="Bootstrap 5"></div>
+                          <div class="skill-card"><img src="{% static 'images/sql.jpg' %}" alt="SQL"></div>
+                          <div class="skill-card"><img src="{% static 'images/python.jpg' %}" alt="Python"></div>
+                          <div class="skill-card"><img src="{% static 'images/django.jpg' %}" alt="Django"></div>
+                          <div class="skill-card"><img src="{% static 'images/Django REST.png' %}" alt="Django REST"></div>
+                          <div class="skill-card"><img src="{% static 'images/HTML5.png' %}" alt="HTML5"></div>
+                          <div class="skill-card"><img src="{% static 'images/CSS3.png' %}" alt="CSS3"></div>
+                          <div class="skill-card"><img src="{% static 'images/JavaScript.png' %}" alt="JavaScript"></div>
+                          <div class="skill-card"><img src="{% static 'images/Bootstrap5.jpg' %}" alt="Bootstrap 5"></div>
+                          <div class="skill-card"><img src="{% static 'images/sql.jpg' %}" alt="SQL"></div>
+                      </div>
+                  </div>
+                  <div class="skills-row skills-row-right">
+                      <div class="skills-track">
+                          <div class="skill-card"><img src="{% static 'images/nosql.png' %}" alt="NoSQL"></div>
+                          <div class="skill-card"><img src="{% static 'images/mysql.png' %}" alt="MySQL"></div>
+                          <div class="skill-card"><img src="{% static 'images/mongodb.png' %}" alt="MongoDB"></div>
+                          <div class="skill-card"><img src="{% static 'images/ssms.png' %}" alt="Microsoft SQL Server"></div>
+                          <div class="skill-card"><img src="{% static 'images/numpy.png' %}" alt="NumPy"></div>
+                          <div class="skill-card"><img src="{% static 'images/pandas.png' %}" alt="Pandas"></div>
+                          <div class="skill-card"><img src="{% static 'images/matplotlib.png' %}" alt="Matplotlib"></div>
+                          <div class="skill-card"><img src="{% static 'images/git.png' %}" alt="Git"></div>
+                          <div class="skill-card"><img src="{% static 'images/github.png' %}" alt="GitHub"></div>
+                          <div class="skill-card"><img src="{% static 'images/vscode.jpg' %}" alt="VS Code"></div>
+                          <div class="skill-card"><img src="{% static 'images/jupyter.png' %}" alt="Jupyter"></div>
+                          <div class="skill-card"><img src="{% static 'images/pythonanywhere.jpg' %}" alt="PythonAnywhere"></div>
+                          <div class="skill-card"><img src="{% static 'images/render.png' %}" alt="Render"></div>
+                          <div class="skill-card"><img src="{% static 'images/oops.PNG' %}" alt="OOP Concepts"></div>
+                          <div class="skill-card"><img src="{% static 'images/dsa.png' %}" alt="DSA Concepts"></div>
+                          <div class="skill-card"><img src="{% static 'images/orm.png' %}" alt="ORM Technique"></div>
+                          <div class="skill-card"><img src="{% static 'images/nosql.png' %}" alt="NoSQL"></div>
+                          <div class="skill-card"><img src="{% static 'images/mysql.png' %}" alt="MySQL"></div>
+                          <div class="skill-card"><img src="{% static 'images/mongodb.png' %}" alt="MongoDB"></div>
+                          <div class="skill-card"><img src="{% static 'images/ssms.png' %}" alt="Microsoft SQL Server"></div>
+                          <div class="skill-card"><img src="{% static 'images/numpy.png' %}" alt="NumPy"></div>
+                          <div class="skill-card"><img src="{% static 'images/pandas.png' %}" alt="Pandas"></div>
+                          <div class="skill-card"><img src="{% static 'images/matplotlib.png' %}" alt="Matplotlib"></div>
+                          <div class="skill-card"><img src="{% static 'images/git.png' %}" alt="Git"></div>
+                          <div class="skill-card"><img src="{% static 'images/github.png' %}" alt="GitHub"></div>
+                          <div class="skill-card"><img src="{% static 'images/vscode.jpg' %}" alt="VS Code"></div>
+                          <div class="skill-card"><img src="{% static 'images/jupyter.png' %}" alt="Jupyter"></div>
+                          <div class="skill-card"><img src="{% static 'images/pythonanywhere.jpg' %}" alt="PythonAnywhere"></div>
+                          <div class="skill-card"><img src="{% static 'images/render.png' %}" alt="Render"></div>
+                          <div class="skill-card"><img src="{% static 'images/oops.PNG' %}" alt="OOP Concepts"></div>
+                          <div class="skill-card"><img src="{% static 'images/dsa.png' %}" alt="DSA Concepts"></div>
+                          <div class="skill-card"><img src="{% static 'images/orm.png' %}" alt="ORM Technique"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+     
+      <!-- Experience Section -->
+      <section id="experience" class="py-5 bg-light">
+         <div class="container">
+            <!-- Heading -->
+            <div class="text-center mb-4">
+               <h2 class="text-dark fw-bold">EXPERIENCE</h2>
+               <hr class="heading-divider mt-5">
+            </div>
+            <!-- Experience Cards Container -->
+            <div class="row" id="experience-cards">
+               <!-- Cards will be inserted dynamically here -->
+            </div>
+         </div>
+      </section>
+      <!-- Projects Section -->
+      <section id="projects" class="py-5">
+         <div class="container">
+             <!-- Heading -->
+             <div class="text-center mb-4">
+                 <h2 class="text-dark fw-bold">PROJECTS</h2>
+                 <hr class="heading-divider mt-5">
+             </div>
+             <!-- Projects Grid -->
+             <div class="projects-container">
+                 <!-- Project 1 -->
+                 <div class="project-card">
+                     <a href="https://shubham373shirodkar.pythonanywhere.com/" target="_blank">
+                         <img src="{% static 'images/ofos.jpg' %}" alt="Online Food Ordering System" class="project-image">
+                     </a>
+                     <div class="project-details">
+                         <p class="project-duration">Dec 2022 - Nov 2024</p>
+                         <h4 class="project-title">Online Food Ordering System</h4>
+                         <p class="project-tech">Python, Django, Bootstrap, MySQL</p>
+                         <div class="project-links">
+                             <a href="https://shubham373shirodkar.pythonanywhere.com/" target="_blank">Live Demo</a>
+                             <a href="https://github.com/Shirodkar-Shubham-GitHub/Online_Food_Ordering_System" target="_blank">GitHub</a>
+                         </div>
+                     </div>
+                 </div>
+     
+                 <!-- Project 2 -->
+                 <div class="project-card">
+                     <a href="https://shubhamshirodkar990.pythonanywhere.com/" target="_blank">
+                         <img src="{% static 'images/Zomato_Analysis.PNG' %}" alt="Zomato Analysis Dashboard" class="project-image">
+                     </a>
+                     <div class="project-details">
+                         <p class="project-duration">Apr 2023 - Jun 2023</p>
+                         <h4 class="project-title">Zomato Analysis Dashboard</h4>
+                         <p class="project-tech">Python, Django, Pandas, Matplotlib, Seaborn</p>
+                         <div class="project-links">
+                             <a href="https://shubhamshirodkar990.pythonanywhere.com/" target="_blank">Live Demo</a>
+                             <a href="https://github.com/Shirodkar-Shubham-GitHub/Zomato_Analysis" target="_blank">GitHub</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+      <!-- Certifications Section -->
+      <section id="certifications" class="py-5">
+         <div class="container">
+             <!-- Heading -->
+             <div class="text-center mb-4">
+                 <h2 class="text-dark fw-bold">CERTIFICATIONS</h2>
+                 <hr class="heading-divider mt-5">
+             </div>
+             <!-- Certifications Grid -->
+             <div class="certifications-container">
+                 <!-- Certification 1 -->
+                 <div class="certification-card">
+                     <p class="certification-month">Apr 2024</p>
+                     <h5 class="certification-title">Python Programming - Virtual Internship (ID - 2666fd1)</h5>
+                     <p class="certification-issued">CodSoft</p>
+                     <a href="https://www.codsoft.in/verification" class="certification-link" target="_blank">View Certificate</a>
+                 </div>
+     
+                 <!-- Certification 2 -->
+                 <div class="certification-card">
+                     <p class="certification-month">Oct 2023</p>
+                     <h5 class="certification-title">Python for Data Science</h5>
+                     <p class="certification-issued">Cognitive Class</p>
+                     <a href="https://courses.cognitiveclass.ai/certificates/700f714697a2433eb681f2ca3938418d" class="certification-link" target="_blank">View Certificate</a>
+                 </div>
+     
+                 <!-- Certification 3 -->
+                 <div class="certification-card">
+                     <p class="certification-month">Oct 2022</p>
+                     <h5 class="certification-title">Database Management System</h5>
+                     <p class="certification-issued">MPTEL</p>
+                     <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL22CS91S4358181110193101" class="certification-link" target="_blank">View Certificate</a>
+                 </div>
+             </div>
+         </div>
+     </section>
+      <!-- Floating Contact Button -->
+      <div id="contact-floating-btn">
+         <i class="fas fa-comments"></i>
+      </div>
+      <!-- Contact Me Modal -->
+      <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content p-3">
+               <div class="modal-header">
+                  <h5 class="modal-title">CONTACT ME</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+               </div>
+               <div class="modal-body">
+                  <form id="contactForm">
+                     <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-control" rows="3" required></textarea>
+                     </div>
+                     <button type="submit" class="btn btn-primary text-dark w-100">Send Message</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      <button id="scrollToTopBtn">
+         <i class="fas fa-caret-up"></i> <!-- Caret-Up Symbol -->
+      </button>
+      <!-- Footer -->
+      <footer class="bg-light py-4">
+         <div class="container text-center small text-muted">&copy; All Rights Reserved By Shubham Ashok Shirodkar</div>
+      </footer>
+      <!-- Bootstrap core JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="{% static 'js/scripts.js' %}"></script>
+   </body>
+</html>
