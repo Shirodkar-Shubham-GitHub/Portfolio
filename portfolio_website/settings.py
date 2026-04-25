@@ -32,21 +32,36 @@ def load_env_file(env_path: Path) -> None:
 load_env_file(BASE_DIR / ".env")
 
 
+def env(key: str, default: str | None = None) -> str | None:
+    return os.environ.get(key, default)
+
+
+def env_bool(key: str, default: bool = False) -> bool:
+    value = env(key)
+    if value is None:
+        return default
+    return value.lower() in {"1", "true", "yes", "on"}
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get(
-    "SECRET_KEY",
-    "django-insecure-#^87v5t_&mxb4=bs)uon6h&9^^e+j%7ki+^*ol4*y0@+q#j26z",
-)
+SECRET_KEY = env("SECRET_KEY")
+
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY is not set. Add it to the .env file.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
+DEBUG = env_bool("DEBUG", True)
+
+allowed_hosts_value = env("ALLOWED_HOSTS")
+if not allowed_hosts_value:
+    raise ValueError("ALLOWED_HOSTS is not set. Add it to the .env file.")
 
 ALLOWED_HOSTS = [
     host.strip()
-    for host in os.environ.get("ALLOWED_HOSTS", "*").split(",")
+    for host in allowed_hosts_value.split(",")
     if host.strip()
 ]
 
@@ -100,12 +115,29 @@ WSGI_APPLICATION = "portfolio_website.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / "db.sqlite3",
+DB_ENGINE = env("DB_ENGINE", "django.db.backends.sqlite3")
+
+if DB_ENGINE == "django.db.backends.sqlite3":
+    DATABASES = {
+        "default": {
+            "ENGINE": DB_ENGINE,
+            "NAME": env("DB_NAME", str(BASE_DIR / "db.sqlite3")),
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": DB_ENGINE,
+            "NAME": env("DB_NAME", ""),
+            "USER": env("DB_USER", ""),
+            "PASSWORD": env("DB_PASSWORD", ""),
+            "HOST": env("DB_HOST", "localhost"),
+            "PORT": env("DB_PORT", "3306"),
+            "OPTIONS": {
+                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            },
+        }
+    }
 
 
 # Password validation
