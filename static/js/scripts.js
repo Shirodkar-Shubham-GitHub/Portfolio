@@ -81,6 +81,10 @@ responsiveNavItems.forEach(responsiveNavItem => {
 
 // Initialize SimpleLightbox for portfolio items
 function initLightbox() {
+if (typeof SimpleLightbox !== 'function') {
+    return;
+}
+
 new SimpleLightbox({
     elements: '#portfolio a.portfolio-box'
 });
@@ -137,8 +141,16 @@ return new Date(dateString).toLocaleDateString("en-US", options);
 }
 
 function initContactForm() {
-document.getElementById("contact-floating-btn").addEventListener("click", openContactModal);
-document.getElementById("contactForm").addEventListener("submit", submitContactForm);
+const contactButton = document.getElementById("contact-floating-btn");
+const contactForm = document.getElementById("contactForm");
+
+if (contactButton) {
+    contactButton.addEventListener("click", openContactModal);
+}
+
+if (contactForm) {
+    contactForm.addEventListener("submit", submitContactForm);
+}
 }
 
 function openContactModal() {
@@ -150,19 +162,35 @@ function submitContactForm(event) {
 event.preventDefault();
 
 let formData = getContactFormData();
+const csrfToken = getCsrfToken();
 
 fetch("/api/contact/", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrfToken,
+    },
+    credentials: "same-origin",
     body: JSON.stringify(formData),
 })
-.then(response => response.json())
+.then(async response => {
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.detail || data.message || "Unable to send message.");
+    }
+
+    return data;
+})
 .then(data => {
     alert(data.message);
     resetContactForm();
     closeContactModal();
 })
-.catch(error => console.error("Error submitting contact form:", error));
+.catch(error => {
+    console.error("Error submitting contact form:", error);
+    alert(error.message || "Unable to send message.");
+});
 }
 
 function getContactFormData() {
@@ -174,17 +202,25 @@ return {
 };
 }
 
+function getCsrfToken() {
+const csrfInput = document.querySelector("#contactForm [name=csrfmiddlewaretoken]");
+return csrfInput ? csrfInput.value : "";
+}
+
 function resetContactForm() {
 document.getElementById("contactForm").reset();
 }
 
 function closeContactModal() {
 let contactModal = bootstrap.Modal.getInstance(document.getElementById("contactModal"));
-contactModal.hide();
+if (contactModal) {
+    contactModal.hide();
+}
 }
 
 function initScrollToTopButton() {
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
+const heroSection = document.getElementById("page-top");
 
 window.addEventListener("scroll", function () {
     if (window.scrollY > 200) {
@@ -195,6 +231,11 @@ window.addEventListener("scroll", function () {
 });
 
 scrollToTopBtn.addEventListener("click", function () {
+    if (heroSection) {
+        heroSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+    }
+
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 }

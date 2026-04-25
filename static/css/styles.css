@@ -329,7 +329,6 @@ section h2 {
 #contact-floating-btn,
 #scrollToTopBtn {
     position: fixed;
-    right: 20px;
     width: 55px;
     height: 55px;
     border: none;
@@ -337,19 +336,25 @@ section h2 {
     color: #fff;
     background: #6f42d5;
     box-shadow: 0 4px 12px rgba(111, 66, 213, 0.3);
-    z-index: 1050;
+    z-index: 1080;
+    pointer-events: auto;
 }
 
 #contact-floating-btn {
+    left: 20px;
     bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 #scrollToTopBtn {
-    bottom: 85px;
+    right: 20px;
+    bottom: 20px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;

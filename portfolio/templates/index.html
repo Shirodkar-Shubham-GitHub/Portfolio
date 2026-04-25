@@ -289,9 +289,9 @@
          </div>
      </section>
       <!-- Floating Contact Button -->
-      <div id="contact-floating-btn">
+      <button id="contact-floating-btn" type="button" aria-label="Open contact form" data-bs-toggle="modal" data-bs-target="#contactModal">
          <i class="fas fa-comments"></i>
-      </div>
+      </button>
       <!-- Contact Me Modal -->
       <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
          <div class="modal-dialog">
@@ -302,6 +302,7 @@
                </div>
                <div class="modal-body">
                   <form id="contactForm">
+                     {% csrf_token %}
                      <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" id="name" class="form-control" required>
@@ -324,7 +325,7 @@
             </div>
          </div>
       </div>
-      <button id="scrollToTopBtn">
+      <button id="scrollToTopBtn" type="button" aria-label="Back to top">
          <i class="fas fa-caret-up"></i> <!-- Caret-Up Symbol -->
       </button>
       <!-- Footer -->
