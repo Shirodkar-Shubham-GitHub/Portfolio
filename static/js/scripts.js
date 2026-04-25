@@ -136,8 +136,21 @@ function createExperienceCard(experience) {
 // Function to format date (YYYY-MM-DD to Month YYYY)
 function formatDate(dateString) {
 if (!dateString) return "Present";
+
+const normalizedDate = String(dateString).trim();
+
+if (!normalizedDate || normalizedDate.toLowerCase() === "present") {
+    return "Present";
+}
+
+const parsedDate = new Date(normalizedDate);
+
+if (Number.isNaN(parsedDate.getTime())) {
+    return "Present";
+}
+
 const options = { year: "numeric", month: "short" };
-return new Date(dateString).toLocaleDateString("en-US", options);
+return parsedDate.toLocaleDateString("en-US", options);
 }
 
 function initContactForm() {
